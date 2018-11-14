@@ -3,7 +3,7 @@ project(opus)
 
 
 option(USE_ALLOCA "USE_ALLOCA" ON)
-option(FIXED_POINT "FIXED_POINT" OFF)
+option(FIXED_POINT "FIXED_POINT" ON)
 option(DISABLE_FLOAT_API "DISABLE_FLOAT_API" OFF)
 
 #HAVE_SSE
@@ -239,6 +239,7 @@ src/opus_multistream.c
 src/opus_multistream_encoder.c
 src/opus_multistream_decoder.c
 src/repacketizer.c
+src/opus_demo.c
 )
 
 set(OPUS_SOURCES_FLOAT
@@ -337,4 +338,5 @@ endforeach(src_file)
 
 add_library(opus STATIC ${ALL_SOURCES})
 
-#add_subdirectory(tests)
+# add_subdirectory(tests)
+add_executable(opus_demo ${ALL_SOURCES})
